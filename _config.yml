@@ -1,4 +1,6 @@
 # This is the default format. 
+markdown: kramdown
+
 # For more see: http://jekyllrb.com/docs/permalinks/
 permalink: /:categories/:year/:month/:day/:title 
 
@@ -9,11 +11,11 @@ highlighter: pygments
 # so be sure to set them if your theme uses them.
 #
 title : Peter Ho 's Blog
-tagline: Site Tagline
+tagline: 
 author :
-  name : Name Lastname
-  email : blah@email.test
-  github : username
+  name : Peter Ho
+  email : peterho1024@gmail.com
+  github : PeterHo
   twitter : username
   feedburner : feedname
 
@@ -25,7 +27,7 @@ author :
 # Else if you are pushing to username.github.io, replace with your username.
 # Finally if you are pushing to a GitHub project page, include the project name at the end.
 #
-production_url : http://peterho.github.io
+production_url : http://peterho.me
 
 # All Jekyll-Bootstrap specific configurations are namespaced into this hash
 #
@@ -80,9 +82,9 @@ JB :
   # Set 'provider' to false to turn commenting off globally.
   #
   comments :
-    provider : duoshuo
+    provider : disqus
     disqus :
-      short_name : jekyllbootstrap
+      short_name : Peter Ho
     livefyre :
       site_id : 123
     intensedebate :

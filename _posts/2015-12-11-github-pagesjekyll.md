@@ -123,5 +123,5 @@ comments: 设置评论
 blog.peterho.me
 ```
 注意只能添加一条域名
-
-如果绑定的是顶级域名，则DNS要新建一条A记录，指向204.232.175.78。如果绑定的是二级域名，则DNS要新建一条CNAME记录，指向username.github.com（请将username换成你的用户名）。此外，别忘了将_config.yml文件中的baseurl改成根目录"/"。
+* 在DNS解析处新建一条CNAME记录,指向peterho.github.com
+* 如果绑定的是顶级域名,则需要新建A记录

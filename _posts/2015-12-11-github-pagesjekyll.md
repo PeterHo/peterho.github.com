@@ -9,7 +9,7 @@ tags: []
 
 ### 安装Git
 
-```
+```sh
 sudo apt-get install git
 ```
 
@@ -22,16 +22,16 @@ sudo apt-add-repository ppa:brightbox/ruby-ng
 sudo apt-get update
 ```
 * 安装各种依赖库
-```
+```sh
 sudo apt-get install ruby2.2 ruby2.2-dev nodejs
 ```
 * 将gem的软件源换成taobao的服务器
-```
+```sh
 sudo gem sources --remove https://rubygems.org/
 sudo gem sources -a https://ruby.taobao.org/
 ```
 * 安装Jekyll和GihubPages
-```
+```sh
 sudo gem install jekyll
 sudo gem install github-pages
 ```
@@ -44,7 +44,7 @@ sudo gem install github-pages
 * 使用现成框架来建立,我选择的是[JekyllBootstrap](http://jekyllbootstrap.com/)
 * 上传JekyllBootstrap代码
 
-```
+```sh
 git clone https://github.com/plusjade/jekyll-bootstrap.git PeterHo.github.com
 cd PeterHo.github.com
 git remote add origin https://PeterHo@github.com/PeterHo/peterho.github.com.git
@@ -53,7 +53,7 @@ git push origin master
 
 * 也可以使用Jekyll生成一个全新的网站
 
-```
+```sh
 jekyll new site-name
 ```
 
@@ -66,14 +66,14 @@ jekyll new site-name
 ### Jekyll使用
 * 添加文章
 
-```
+```sh
 # 创建文件: ./_posts/2015-12-11-hello-world.md
 rake post title="Hello World"
 ```
 
 * 添加页面
 
-```
+```sh
 # 创建文件 ./about.md
 rake page name="about.md"
 # 创建文件 ./pages/about.md
@@ -83,7 +83,7 @@ rake page name="pages/about"
 ```
 
 * 本地预览
-```
+```sh
 # 127.0.0.1:4000
 jekyll serve
 ```
@@ -92,12 +92,12 @@ jekyll serve
 * 查看现有的[主题](http://themes.jekyllbootstrap.com/)
 * 安装主题
 
-```
+```sh
 rake theme:install git="https://github.com/jekyllbootstrap/theme-the-program.git"
 ```
 * 切换主题
 
-```
+```sh
 rake theme:switch name="twitter"
 ```
 

@@ -107,26 +107,39 @@ rake theme:switch name="twitter"
 ```
 
 ### 博客配置
-* 配置文件名: `./config.yml`
-* 可以在文件中配置各种博客相关的信息
-设置Jekyll的Markdown解释器
+* 配置文件: `./config.yml`
+* 设置Jekyll的Markdown解释器
+
 ```
-markdown: kramdown
+markdown: redcarpet
+redcarpet:
+  extensions: ["smart", "tables", "no_intra_emphasis", "fenced_code_blocks", "autolink", "strikethrough", "superscript", "with_toc_data", "space_after_headers"]
 ```
-其他设置
+
+* 设置多说评论系统
+其中short_name为在多说注册的域名
+
+```
+comments :
+  provider : duoshuo
+  duoshuo :
+    short_name : peterho
+```
+
+* 其他设置
+
 ```
 title: 博客网站标题
 production_url: 主要用于在网站地图等位置显示完整域名
-comments: 设置评论
-  provider: 选择评论插件,我设置为disqus,将其中的short_name项改成自己的名字
 ```
 
 ### 绑定域名
 * 在项目根目录下新建文件CNAME
-* 在文件中添加自己的域名,如
-```
-blog.peterho.me
-```
+* 在文件中添加自己的域名,如`blog.peterho.me`
 注意只能添加一条域名
 * 在DNS解析处新建一条CNAME记录,指向peterho.github.com
-* 如果绑定的是顶级域名,则需要新建A记录
+* 如果绑定的是顶级域名,则需要新建A记录,ip通过ping peterho.github.com 获得
+* 将`_config.yml`中的`production_url`项改为新的域名
+
+
+### [源代码](https://github.com/PeterHo/peterho.github.com/)

@@ -1,7 +1,7 @@
 # This is the default format. 
 markdown: redcarpet
 redcarpet:
-  extensions: ["smart", "tables", "no_intra_emphasis", "fenced_code_blocks", "autolink", "strikethrough", "superscript", "with_toc_data"]
+  extensions: ["smart", "tables", "no_intra_emphasis", "fenced_code_blocks", "autolink", "strikethrough", "superscript", "with_toc_data", "space_after_headers"]
 
 # For more see: http://jekyllrb.com/docs/permalinks/
 permalink: /:categories/:year/:month/:day/:title 
@@ -84,7 +84,7 @@ JB :
   # Set 'provider' to false to turn commenting off globally.
   #
   comments :
-    provider : disqus
+    provider : duoshuo
     disqus :
       short_name : Peter Ho
     livefyre :
@@ -97,7 +97,7 @@ JB :
       width: 580
       colorscheme: light
     duoshuo :
-      short_name : Peter Ho
+      short_name : peterho
    
   # Settings for analytics helper
   # Set 'provider' to the analytics provider you want to use.

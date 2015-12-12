@@ -17,20 +17,25 @@ sudo apt-get install git
 Jekyll是一个静态网站生成器,非常适合生成博客类的网站
 
 * 添加软件源,Ubuntu自带的软件源的Ruby太低
+
 ```sh
 sudo apt-add-repository ppa:brightbox/ruby-ng
-sudo apt-get update
+sudo apt-get update222
 ```
+
 * 安装各种依赖库
+
 ```sh
 sudo apt-get install ruby2.2 ruby2.2-dev nodejs
 ```
 * 将gem的软件源换成taobao的服务器
+
 ```sh
 sudo gem sources --remove https://rubygems.org/
 sudo gem sources -a https://ruby.taobao.org/
 ```
 * 安装Jekyll和GihubPages
+
 ```sh
 sudo gem install jekyll
 sudo gem install github-pages

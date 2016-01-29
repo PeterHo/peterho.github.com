@@ -4,9 +4,9 @@ title: Atom编辑器入门到精通(一) 安装及使用基础
 date: '2015-12-18 16:29'
 ---
 
-原创时间:2015-12-18<br>更新时间:2016-01-21
+原创时间:2015-12-18<br>更新时间:2016-01-29
 
-## 为什么选择使用Atom
+# 为什么选择使用Atom
 Atom是GitHub推出的一款编辑器,被称为21世纪的黑客编辑器,主要的特点是现代,易用,可定制.
 我之前也用过多款编辑器,现总结一下个人对各编辑器的看法:
 
@@ -22,19 +22,19 @@ Atom跟上面的编辑器比起来优点是比较均衡,上手简单,零门槛,�
 
 本教程主要参考Atom的[官方文档](https://atom.io/docs) 1.4.0版,教程中所用的图片很多也取自那里,在后文中就不一一注明了.
 
-## 安装
+# 安装
 打开[官方主页](https://atom.io/)
 ![官方主页](/home/peter/Pictures/linux-downloads.png)
 网页会自动判断你的操作系统,给出其对应的下载按钮
 比如我的系统是Ubuntu,就可以点击`Download .deb`按钮来下载系统对应的安装包
 如果要下载其他系统的安装包,点击`Other platforms`链接即可
-### Mac
+## Mac
 将下载的zip安装包解压后将解压出的`Atom`应用拖到应用目录下
 
-### Windows
+## Windows
 运行安装包安装
 
-### Linux
+## Linux
 如果是基于Debian的发行版,执行命令:
 ```
 sudo dpkg -i atom-amd64.deb
@@ -48,8 +48,8 @@ rpm -i atom.x86_64.rpm
 ![界面](/home/peter/Pictures/first-launch.png)
 
 
-## 基本使用
-### 命令面板
+# 基本使用
+## 命令面板
 Atom在很多地方学习和参考了以前的优秀的编辑器的功能,命令面板就是其一.
 当你第一次看到它时,还以为在用Sublime呢
 命令面板是Atom中最常用的功能之一,当你在编辑器中使用快捷键`Ctrl+Shift+P`时,就会看到它
@@ -58,7 +58,7 @@ Atom在很多地方学习和参考了以前的优秀的编辑器的功能,命令
 比如说当你输入cboo时,所有包含有这4个字符的命令就都列出来了
 在列出的命令后还显示了此命令对应的快捷键(如果有的话)
 
-### 设置窗口
+## 设置窗口
 Atom使用起来很方便的一点就是自带了可视化的设置窗口,不像传统的编辑器那样需要手动修改配置文件
 ![设置窗口](/home/peter/Pictures/settings.png)
 你可以使用三种方式来打开设置窗口
@@ -68,146 +68,45 @@ Atom使用起来很方便的一点就是自带了可视化的设置窗口,不像
 
 在设置窗口中可以设置和管理各种编辑器行为,键盘快捷键,插件,主题等内容
 
-#### 设置窗口界面主题和代码高亮
+### 设置窗口界面主题和代码高亮
 Atom自带了4种窗口主题和8种代码高亮方式
 可以通过设置窗口中的Themems页面来配置和修改
 另外还有n多n多第三方制作的主题可以安装,安装方法在后面会讲到
 ![主题设置](/home/peter/Pictures/theme.png)
 
-### 文件操作
-#### 打开文件
+## 文件操作
+### 打开文件
 你可以通过主菜单`File`->`Open File`或者快捷键`Ctrl+O`来打开文件选择窗口
 ![打开文件](/home/peter/Pictures/open-file.png)
 
-#### 保存文件
+### 保存文件
 主菜单 `File`->`Save`
 快捷键 `Ctrl+S`
 另存为: `Ctrl+Shift+S`
 保存所有文件: `Ctrl+Alt+S`
 
-#### 打开文件夹
+### 打开文件夹
 打开文件夹是一个很实用的功能.比如打开一个项目的根目录,感觉就像是在使用IDE一样
 你可以通过在主菜单选择`File`->`Open Folder`来打开一个目录,也可以使用快捷键`Ctrl+Shift+O`
 如果你已经打开了一个目录,又想在当前窗口中再打开一个目录,请在主菜单选择`File`->`Add Project Folder`或者使用快捷键`Alt+Ctrl+O`
 在打开一个文件夹以后该文件夹下的所有子目录和文件都会以目录树的方式显示在主窗口左边,就像下图一样
 ![打开文件夹](/home/peter/Pictures/project-view.png)
-在目录树栏中还可以对文件进行新建打开,重命名,删除等操作
+你可以通过在目录树栏中右键菜单或选中文件时使用快捷键`a`,`m`,`delete`来对文件进行新建,重命名,删除等操作
+如果要切换目录树栏的显示与隐藏可以通过快捷键`Ctrl+\`或命令`Tree View:Toggle`
+目录树中右键菜单中还能实现文件的复制粘贴等功能
+
+### 查找文件
+当打开一个或多个目录时,你可以:
+* 通过快捷键`Ctrl+T`或`Ctrl+P`来搜索目录中的文件
+* 通过快捷键`Ctrl+B`来搜索一个当前打开的文件
+* 通过快捷键`Ctrl+Shift+B`来搜索一个新建的或更改过的文件
+
+当然这些功能也都支持模糊查询
+如果你需要在搜索时过滤掉一些特定的文件(比如.pyc文件)或目录(比如.git),可以配置`core.ignoredNames`和`fuzzy-finder.ignoredNames`.
+也可以通过配置`core.excludeVcsIgnoredPaths`来过滤掉在.gitignore中配置的文件.
+具体的配置方法以后会讲到.
 
 
-## 配置
-Atom的配置文件位于HOME目录的.atom文件夹下<br>
-主要的配置文件有:
-
-`~/.atom/config.cson`
-
-主要的配置文件
-
-`~/.atom/keymap.cson`
-
-快捷键的配置文件
-
-`~/.atom/init.coffee`
-每当Atom有新窗口建立时都会调用此文件
-
-
-
-# 插件
-
-```
-
-apm install vim-mode
-
-apm install atom-beautify
-
-apm install linter
-
-apm install emmet
-
-apm install file-icons
-
-apm install color-picker
-
-apm install git-plus
-
-apm install project-manager
-
-apm install highlight-line
-```
-
-
-# 快捷键
-## 显示列表
-
-```
-
-Ctrl+Shift+P        显示命令列表
-
-
-
-Ctrl+T              显示文件列表
-
-Ctrl+B              显示已打开文件列表
-
-Ctrl+Shift+B        显示未同步文件列表
-
-
-
-Ctrl+R              显示当前文件符号列表
-
-Ctrl+Shift+R        显示工程内符号列表(需要tags文件)
-```
-
-## 搜索
-
-```
-
-Ctrl+F              文件内搜索
-
-Ctrl+Shift+F        工程内搜索
-```
-
-## 分栏
-
-```
-
-Ctrl+K 右/下         新建分栏
-
-Ctrl+K Ctrl+右/下    切换分栏焦点
-
-Ctrl+W              关闭分栏
-```
-
-## 折叠
-
-```
-
-Ctrl+Alt+[/]        折叠/展开
-
-Ctrl+Alt+Shift+{/}  全局折叠/展开
-
-Ctrl+K Ctrl+n       折叠n层
-```
-
-## 配置
-
-```
-
-Ctr+,               显示配置选项
-```
-
-## TreeView
-
-```
-
-Ctrl+0          切换TreeView焦点
-
-Ctrl+\          切换TreeView显示
-
-
-
-a               添加文件
-
-m               移动文件
-
-delete          删除文件
-```
+# 总结
+在本文中我们学习了怎么安装Atom和一些基本的Atom的使用方法,在学习了这部分内容以后相信你已经可以方便地使用Atom了
+在以后的课程中我们会学习一些Atom更高级的用法,让我们使用得更流畅.

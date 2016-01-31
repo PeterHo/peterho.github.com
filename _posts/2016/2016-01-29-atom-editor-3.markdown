@@ -18,12 +18,12 @@ date: '2016-01-29 10:29'
 * 移动到当前光标所在单词尾: `Alt+F` 或 `Alt+Right`
 ## 移动到指定行/列
 通过快捷键`Ctrl+G`来呼出光标移动窗口,填入`行:列`后回车就可以将光标移动到指定位置
-![定点移动](/home/peter/Pictures/goto.png)
+![定点移动](https://raw.githubusercontent.com/PeterHo/images/master/blog/editor/atom/atom_3/goto.png)
 ## 符号间跳转
 这里的符号是指`Symbols`,包括代码中的函数名,变量名等
 在当前文档搜索并跳到符号: `Ctrl+R`
 在工程内搜索并跳到符号: `Ctrl+Shift+R`
-![符号间跳转](/home/peter/Pictures/symbol.png)
+![符号间跳转](https://raw.githubusercontent.com/PeterHo/images/master/blog/editor/atom/atom_3/symbol.png)
 `Ctrl+Shift+R`需要需要`tags`文件的支持,如果你以前使用过Vim等编辑器应该对这个机制很熟悉了
 ## 使用书签
 * `Ctrl+Shift+F2`: 在当前行创建或取消书签
@@ -55,7 +55,7 @@ date: '2016-01-29 10:29'
 多光标选择是SublimeText的特色功能,现在Atom也能支持了
 按住`Ctrl`键,用鼠标点击想要添加光标的位置,就能添加多个光标了
 也可以在按住`Ctrl`键时用鼠标选择多个块
-![多光标](/home/peter/Pictures/multiple-cursors.gif)
+![多光标](https://raw.githubusercontent.com/PeterHo/images/master/blog/editor/atom/atom_3/multiple-cursors.gif)
 通过多光标选择能够很方便地编辑代码
 
 ## 括号和引号
@@ -69,14 +69,14 @@ Atom对括号和引号有很多的支持,其中包括:
 ## 文件编码
 当你打开一个文本文件时,Atom会自动判断文件的编码方式,如果不能识别就会默认使用UTF-8
 你可以使用快捷键`Alt+U`来呼出编码选择窗口来手动选择文件的编码方式
-![文件编码](/home/peter/Pictures/encodings.png)
+![文件编码](https://raw.githubusercontent.com/PeterHo/images/master/blog/editor/atom/atom_3/encodings.png)
 
 # 查找和替换
 Atom的查找使用方式与大部分编辑器一样
 使用`Ctrl+F`进行文件内查找
-![查找和替换](/home/peter/Pictures/find-replace-file.png)
+![查找和替换](https://raw.githubusercontent.com/PeterHo/images/master/blog/editor/atom/atom_3/find-replace-file.png)
 使用`Ctrl+Shift+F`进行工程内查找
-![工程内查找](/home/peter/Pictures/find-replace-project.png)
+![工程内查找](https://raw.githubusercontent.com/PeterHo/images/master/blog/editor/atom/atom_3/find-replace-project.png)
 在查找窗口中输入需要查找的文本后可以使用`F3`跳到下一个查找的结果或者`Shift+F3`跳到上一个结果
 在查找窗口中中还可以对使用正则表达式,大小写敏感,查找选中块,查找整个单词等选项进行设置
 在多文件查找时你还可以通过在`File/directory pattern`文本框中输入通配符来限定只查询某一些文件

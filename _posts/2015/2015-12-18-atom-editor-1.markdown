@@ -24,7 +24,7 @@ Atom跟上面的编辑器比起来优点是比较均衡,上手简单,零门槛,�
 
 # 安装
 打开[官方主页](https://atom.io/)
-![官方主页](/home/peter/Pictures/linux-downloads.png)
+![官方主页](https://raw.githubusercontent.com/PeterHo/images/master/blog/editor/atom/atom_1/linux-downloads.png)
 网页会自动判断你的操作系统,给出其对应的下载按钮
 比如我的系统是Ubuntu,就可以点击`Download .deb`按钮来下载系统对应的安装包
 如果要下载其他系统的安装包,点击`Other platforms`链接即可
@@ -45,7 +45,7 @@ rpm -i atom.x86_64.rpm
 ```
 
 安装完成后运行Atom,将会看到这样的界面,说明我们已经安装成功了
-![界面](/home/peter/Pictures/first-launch.png)
+![界面](https://raw.githubusercontent.com/PeterHo/images/master/blog/editor/atom/atom_1/first-launch.png)
 
 
 # 基本使用
@@ -53,14 +53,14 @@ rpm -i atom.x86_64.rpm
 Atom在很多地方学习和参考了以前的优秀的编辑器的功能,命令面板就是其一.
 当你第一次看到它时,还以为在用Sublime呢
 命令面板是Atom中最常用的功能之一,当你在编辑器中使用快捷键`Ctrl+Shift+P`时,就会看到它
-![控制面板](/home/peter/Pictures/command-palette.png)
+![控制面板](https://raw.githubusercontent.com/PeterHo/images/master/blog/editor/atom/atom_1/command-palette.png)
 在控制面板中可以输入Atom中和插件中定义的所有命令,并且支持模糊搜索
 比如说当你输入cboo时,所有包含有这4个字符的命令就都列出来了
 在列出的命令后还显示了此命令对应的快捷键(如果有的话)
 
 ## 设置窗口
 Atom使用起来很方便的一点就是自带了可视化的设置窗口,不像传统的编辑器那样需要手动修改配置文件
-![设置窗口](/home/peter/Pictures/settings.png)
+![设置窗口](https://raw.githubusercontent.com/PeterHo/images/master/blog/editor/atom/atom_1/settings.png)
 你可以使用三种方式来打开设置窗口
 1. 通过主菜单`Edit`->`Preferences`来打开设置窗口
 2. 在命令面板中输入命令`Settings View:Open`来打开,因为命令窗口支持模糊查询,所以只需要输入`svo`,就可以了
@@ -72,12 +72,12 @@ Atom使用起来很方便的一点就是自带了可视化的设置窗口,不像
 Atom自带了4种窗口主题和8种代码高亮方式
 可以通过设置窗口中的Themems页面来配置和修改
 另外还有n多n多第三方制作的主题可以安装,安装方法在后面会讲到
-![主题设置](/home/peter/Pictures/theme.png)
+![主题设置](https://raw.githubusercontent.com/PeterHo/images/master/blog/editor/atom/atom_1/theme.png)
 
 ## 文件操作
 ### 打开文件
 你可以通过主菜单`File`->`Open File`或者快捷键`Ctrl+O`来打开文件选择窗口
-![打开文件](/home/peter/Pictures/open-file.png)
+![打开文件](https://raw.githubusercontent.com/PeterHo/images/master/blog/editor/atom/atom_1/open-file.png)
 
 ### 保存文件
 主菜单 `File`->`Save`
@@ -90,7 +90,7 @@ Atom自带了4种窗口主题和8种代码高亮方式
 你可以通过在主菜单选择`File`->`Open Folder`来打开一个目录,也可以使用快捷键`Ctrl+Shift+O`
 如果你已经打开了一个目录,又想在当前窗口中再打开一个目录,请在主菜单选择`File`->`Add Project Folder`或者使用快捷键`Alt+Ctrl+O`
 在打开一个文件夹以后该文件夹下的所有子目录和文件都会以目录树的方式显示在主窗口左边,就像下图一样
-![打开文件夹](/home/peter/Pictures/project-view.png)
+![打开文件夹](https://raw.githubusercontent.com/PeterHo/images/master/blog/editor/atom/atom_1/project-view.png)
 你可以通过在目录树栏中右键菜单或选中文件时使用快捷键`a`,`m`,`delete`来对文件进行新建,重命名,删除等操作
 如果要切换目录树栏的显示与隐藏可以通过快捷键`Ctrl+\`或命令`Tree View:Toggle`
 目录树中右键菜单中还能实现文件的复制粘贴等功能

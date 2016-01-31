@@ -18,20 +18,20 @@ date: '2016-01-21 15:26'
 在设置窗口中切换到"Install"标签页
 在提示有"Search packages"的文本框里输入插件的名字
 点"Packages"或者"Themes"来查找安装Atom的插件或主题
-![插件安装页面](/home/peter/Pictures/packages-install.png)
+![插件安装页面](https://raw.githubusercontent.com/PeterHo/images/master/blog/editor/atom/atom_2/packages-install.png)
 
 # 插件设置
 当插件安装成功以后也会在上文提到的"Packages"标签页中显示出来
 你可以在"Packages"标签页的提示有"Filter packages by name"的文本框中输入插件的名字来搜索已安装的插件
 点击插件列表中的"Settings"按钮,就会显示该插件的设置页面.你可以在这个页面中对该插件进行配置和管理
-![插件设置](/home/peter/Pictures/package-specific-settings.png)
+![插件设置](https://raw.githubusercontent.com/PeterHo/images/master/blog/editor/atom/atom_2/package-specific-settings.png)
 
 # 主题插件
 上文提过主题其实也是一种插件,你同样可以在"Install"标签页中安装主题
-![安装主题](/home/peter/Pictures/themes.png)
+![安装主题](https://raw.githubusercontent.com/PeterHo/images/master/blog/editor/atom/atom_2/themes.png)
 安装完成后就可以使用上篇文章中提到方法来使用该主题了
 下图是使用"Unity UI"主题和"Monokai"高亮后的显示效果
-![新主题](/home/peter/Pictures/unity-theme.png)
+![新主题](https://raw.githubusercontent.com/PeterHo/images/master/blog/editor/atom/atom_2/unity-theme.png)
 
 # 通过命令行来安装管理插件
 当安装好Atom以后你会获得`apm`命令,你可以很方便地在命令终端中通过这个命令来安装管理插件,而不是在界面上点啊点

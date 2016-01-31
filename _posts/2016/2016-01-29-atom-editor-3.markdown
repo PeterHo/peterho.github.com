@@ -1,129 +1,82 @@
 ---
 layout: post
 title: Atom编辑器入门到精通(三) 文本编辑基础
-date: '2016-02-29 10:29'
+date: '2016-01-29 10:29'
 ---
 
-原创时间:2016-02-29<br>更新时间:2016-02-29
+原创时间:2016-01-29<br>更新时间:2016-01-31
 
 
-身为编辑器,文本编辑的功能自然是放在第一位的,此文将总结常用的文本编辑的方法和技巧,掌握这些技巧以后可以极大地提高文本编辑的效率
+身为编辑器,文本编辑的功能自然是放在第一位的,此节将总结常用的文本编辑的方法和技巧,掌握这些技巧以后可以极大地提高文本编辑的效率
+注意此节中用到的快捷键可能会因为操作系统的关系而出现和你不一致的情况,我用的系统是Linux Mint 17.3
 
+# 光标移动
+在编辑文本的过程中移动光标是一种频率很高的操作.
+我们不应只满足于通过鼠标或键盘的方向键的这种效率很低的操作方式来移动光标,让我们来看看还有哪些能极大提高编辑效率的方法吧
+## 单词间的移动
+* 移动到当前光标所在单词头: `Alt+B` 或 `Alt+Left`
+* 移动到当前光标所在单词尾: `Alt+F` 或 `Alt+Right`
+## 移动到指定行/列
+通过快捷键`Ctrl+G`来呼出光标移动窗口,填入`行:列`后回车就可以将光标移动到指定位置
+![定点移动](/home/peter/Pictures/goto.png)
+## 符号间跳转
+这里的符号是指`Symbols`,包括代码中的函数名,变量名等
+在当前文档搜索并跳到符号: `Ctrl+R`
+在工程内搜索并跳到符号: `Ctrl+Shift+R`
+![符号间跳转](/home/peter/Pictures/symbol.png)
+`Ctrl+Shift+R`需要需要`tags`文件的支持,如果你以前使用过Vim等编辑器应该对这个机制很熟悉了
+## 使用书签
+* `Ctrl+Shift+F2`: 在当前行创建或取消书签
+* `Ctrl+F2`: 列出所有书签,并可以跳转到选择的书签
+* `F2`: 跳转到下一个书签
+* `Shift+F2`: 跳转到上一个书签
 
-## 配置
-Atom的配置文件位于HOME目录的.atom文件夹下<br>
-主要的配置文件有:
+# 块选择
+* `Alt+Shift+B` 或 `Alt+Shift+Left`: 从当前光标选中到当前光标所在单词头
+* `Alt+Shift+F` 或 `Alt+Shift+Right`: 从当前光标选中到当前光标所在单词尾
+* `Ctrl+L`: 选中当前行
+* `Ctrl+A`: 全选
 
-`~/.atom/config.cson`
+# 文本编辑与删除
+## 基本操作
+* `Ctrl+J`: 将下一行接到当前行尾
+* `Ctrl+Up`/`Ctrl+Down`: 将当前行向上/下移动一行
+* `Ctrl+Shift+D`: 复制当前行
+* `Ctrl+K, Ctrl+U`: 连续输入两个快捷键,将当前单词转为大写字母
+* `Ctrl+K, Ctrl+L`: 连续输入两个快捷键,将当前单词转为小写字母
+* `Ctrl+Alt+Q`: 段落重排
 
-主要的配置文件
+## 删除和剪切
+* `Ctrl+Shift+K`: 删除当前行
+* `Alt+H`/`Alt+Backspace`: 从当前位置删除到单词头
+* `Alt+D`/`Alt+Delete`: 从当前位置删除到单词尾
 
-`~/.atom/keymap.cson`
+## 多光标选择
+多光标选择是SublimeText的特色功能,现在Atom也能支持了
+按住`Ctrl`键,用鼠标点击想要添加光标的位置,就能添加多个光标了
+也可以在按住`Ctrl`键时用鼠标选择多个块
+![多光标](/home/peter/Pictures/multiple-cursors.gif)
+通过多光标选择能够很方便地编辑代码
 
-快捷键的配置文件
+## 括号和引号
+Atom对括号和引号有很多的支持,其中包括:
+当光标位于括号(包括{}[]())上时,会高亮其对应的另一半括号.同样的,Atom也支持高亮XML和HTML的标签
+自动补全括号{},[],(),引号",',\`
+选中一段文本,然后输入括号或引号,会自动在选中的文本两端添加括号或引号
+使用快捷键`Ctrl+M`可以让光标跳转到临近的括号处,再按一次快捷键光标会跳到另一个对应的括号处
+使用快捷键`Ctrl+Alt+.`可以补全XML/HTML的标签,比如说当输入`<body>`后,使用`Ctrl+Alt+.`时会自动添加`</body>`
 
-`~/.atom/init.coffee`
-每当Atom有新窗口建立时都会调用此文件
+## 文件编码
+当你打开一个文本文件时,Atom会自动判断文件的编码方式,如果不能识别就会默认使用UTF-8
+你可以使用快捷键`Alt+U`来呼出编码选择窗口来手动选择文件的编码方式
+![文件编码](/home/peter/Pictures/encodings.png)
 
-
-
-# 插件
-
-```
-
-apm install vim-mode
-
-apm install atom-beautify
-
-apm install linter
-
-apm install emmet
-
-apm install file-icons
-
-apm install color-picker
-
-apm install git-plus
-
-apm install project-manager
-
-apm install highlight-line
-```
-
-
-# 快捷键
-## 显示列表
-
-```
-
-Ctrl+Shift+P        显示命令列表
-
-
-
-Ctrl+T              显示文件列表
-
-Ctrl+B              显示已打开文件列表
-
-Ctrl+Shift+B        显示未同步文件列表
-
-
-
-Ctrl+R              显示当前文件符号列表
-
-Ctrl+Shift+R        显示工程内符号列表(需要tags文件)
-```
-
-## 搜索
-
-```
-
-Ctrl+F              文件内搜索
-
-Ctrl+Shift+F        工程内搜索
-```
-
-## 分栏
-
-```
-
-Ctrl+K 右/下         新建分栏
-
-Ctrl+K Ctrl+右/下    切换分栏焦点
-
-Ctrl+W              关闭分栏
-```
-
-## 折叠
-
-```
-
-Ctrl+Alt+[/]        折叠/展开
-
-Ctrl+Alt+Shift+{/}  全局折叠/展开
-
-Ctrl+K Ctrl+n       折叠n层
-```
-
-## 配置
-
-```
-
-Ctr+,               显示配置选项
-```
-
-## TreeView
-
-```
-
-Ctrl+0          切换TreeView焦点
-
-Ctrl+\          切换TreeView显示
-
-
-
-a               添加文件
-
-m               移动文件
-
-delete          删除文件
-```
+# 查找和替换
+Atom的查找使用方式与大部分编辑器一样
+使用`Ctrl+F`进行文件内查找
+![查找和替换](/home/peter/Pictures/find-replace-file.png)
+使用`Ctrl+Shift+F`进行工程内查找
+![工程内查找](/home/peter/Pictures/find-replace-project.png)
+在查找窗口中输入需要查找的文本后可以使用`F3`跳到下一个查找的结果或者`Shift+F3`跳到上一个结果
+在查找窗口中中还可以对使用正则表达式,大小写敏感,查找选中块,查找整个单词等选项进行设置
+在多文件查找时你还可以通过在`File/directory pattern`文本框中输入通配符来限定只查询某一些文件

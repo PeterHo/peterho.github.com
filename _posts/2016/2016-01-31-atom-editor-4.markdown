@@ -4,7 +4,7 @@ title: Atom编辑器入门到精通(四)  Atom使用进阶
 date: '2016-02-29 10:29'
 ---
 
-原创时间:2016-01-31<br>更新时间:2016-02-27
+原创时间:2016-01-31<br>更新时间:2016-03-27
 
 在本节中将介绍Atom提供的更高级的使用技巧,通过这些技巧将会进一步提高你的代码编写效率
 # 代码片段(Snippets)
@@ -87,9 +87,29 @@ console.log("crash");
 
 
 # 自动补全
+Atom自带了基本的自动补全功能
+![AutoComplete](https://raw.githubusercontent.com/PeterHo/images/master/blog/editor/atom/atom_4/autocomplete.png)
+默认情况下Atom会根据当前文档的内容来自动补全
+如果你想要更多的选项,可以在`autocomplete-plus`插件设置处设置.比如可以设置该插件通过所有打开的文档来补全(而不仅仅是当前文档)
 
 # 代码折叠
+代码折叠在查看或编写代码时非常有用,Atom同样也支持这个功能
+你可以通过点击行号旁边的箭头或使用快捷键`Ctrl+Alt+[`和`Ctrl+Alt+]`来折叠或展开代码
+![Folding](https://raw.githubusercontent.com/PeterHo/images/master/blog/editor/atom/atom_4/folding.png)
+另外你还可以通过`Ctrl+Alt+Shift+[`和`Ctrl+Alt+Shift+]`来折叠或展开全部代码
+通过`Ctrl+K Ctrl+Num`来指定折叠哪一层缩进(`Num`指定缩进的深度)
+通过`Ctrl+Alt+F`来折叠任意选中的代码段
+
 
 # 分栏
+![Panes](https://raw.githubusercontent.com/PeterHo/images/master/blog/editor/atom/atom_4/panes.png)
+你可以使用`Ctrl+K 方向键`来创建新的分栏,其中方向键的方向决定了分栏的方式,比如`Ctrl+K ↓`就会创建一个新的水平分栏
+当已经存在分栏时,通过`Ctrl+K Ctrl+方向键`来在分栏间切换光标焦点.
+如果你想关闭一个分栏,使用`Ctrl+W`
+
 
 # 代码类型
+Atom会自动识别你当前编辑的文件的类型
+如果识别失败,Atom会将此文件当做普通的文本文档来处理
+在这种情况下我们可以使用`Ctrl+Shift+L`来手动指定或改变当前文件的类型
+![Grammar](https://raw.githubusercontent.com/PeterHo/images/master/blog/editor/atom/atom_4/grammar.png)

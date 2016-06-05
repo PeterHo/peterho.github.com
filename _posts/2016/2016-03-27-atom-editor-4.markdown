@@ -4,7 +4,7 @@ title: Atom编辑器入门到精通(四)  Atom使用进阶
 date: '2016-02-29 10:29'
 ---
 
-原创时间:2016-01-31<br>更新时间:2016-03-27
+原创时间:2016-01-31<br>更新时间:2016-06-05
 
 在本节中将介绍Atom提供的更高级的使用技巧,通过这些技巧将会进一步提高你的代码编写效率
 # 代码片段(Snippets)
@@ -14,8 +14,8 @@ Snippets是一种在代码中快捷插入代码块的方式,下面是维基百�
 
 让我们通过一个实验来感受一下Snippets给我们带来的便利体验
 1. 打开Atom编辑器
-2. 使用`Ctrl+N`新建一个文件
-3. 使用`Ctrl+S`保存文件,将文件名改为`new.html`
+2. 使用`Cmd+N`新建一个文件
+3. 使用`Cmd+S`保存文件,将文件名改为`new.html`
 4. 在`new.html`中键入`html`四个字符,然后按`tab`键,这时你会发现`html`这段文本被扩展成了
 ```
 <html>
@@ -41,7 +41,7 @@ Atom中有很多插件都提供了对某个特定文件中Snippets的支持,比�
 当然我们也可以定义自己的Snippets,这样可以在编码的过程中更加灵活地使用这个特性
 在Atom的配置目录(如果是Linux系统,这个目录是`~/.atom`)下包含一个名为`snippets.cson`的文件,这个文件就负责保存我们的自定义Snippets.你可以通过主菜单`Edit`->`Open Your Snippets`来方便地打开这个文件.
 ### Snippet配置格式
-基本的Snippet的格式是这样的
+基本的Snippet的格式如下:
 ```
 '.source.js':
   'console.log':
@@ -54,7 +54,7 @@ Atom中有很多插件都提供了对某个特定文件中Snippets的支持,比�
 ![SnippetScope](https://raw.githubusercontent.com/PeterHo/images/master/blog/editor/atom/atom_4/snippet-scope.png)
 
 配置的第二行是Snippet的名字,最好取一看就能猜出该Snippet的作用的那种名字.
-接下来的`prefix`指明触发该Snippet的字符串
+接下来的`prefix`指明触发该Snippet的关键字
 `body`的值`'console.log(${1:"crash"});$2'`指明触发的Snippet的具体内容
 其中每个接着数字的`$`表示一个插入项,当用户按`tab`时,光标会在设置的插入项之间移动
 
@@ -63,7 +63,7 @@ Atom中有很多插件都提供了对某个特定文件中Snippets的支持,比�
 ```
 console.log("crash");
 ```
-`"crash"`字符串会被选中,因此如果直接输入其他字符就能改变`"crash"`这个字符串,当在次按下`tab`时,光标又会跳到这一行的末尾`;`后面.
+`"crash"`字符串会被选中,因此如果直接输入其他字符就能改变`"crash"`这个字符串,当再次按下`tab`时,光标又会跳到这一行的末尾`;`后面.
 
 ### 配置多行的Snippet
 多行的Snippet配置如下,就是用`"""`符号将一段body包起来
@@ -94,18 +94,18 @@ Atom自带了基本的自动补全功能
 
 # 代码折叠
 代码折叠在查看或编写代码时非常有用,Atom同样也支持这个功能
-你可以通过点击行号旁边的箭头或使用快捷键`Ctrl+Alt+[`和`Ctrl+Alt+]`来折叠或展开代码
+你可以通过点击行号旁边的箭头或使用快捷键`Cmd+Alt+[`和`Cmd+Alt+]`来折叠或展开代码
 ![Folding](https://raw.githubusercontent.com/PeterHo/images/master/blog/editor/atom/atom_4/folding.png)
-另外你还可以通过`Ctrl+Alt+Shift+[`和`Ctrl+Alt+Shift+]`来折叠或展开全部代码
-通过`Ctrl+K Ctrl+Num`来指定折叠哪一层缩进(`Num`指定缩进的深度)
-通过`Ctrl+Alt+F`来折叠任意选中的代码段
+另外你还可以通过`Cmd+Alt+Shift+[`和`Cmd+Alt+Shift+]`来折叠或展开全部代码
+通过`Cmd+K Cmd+Num`来指定折叠哪一层缩进(`Num`指定缩进的深度)
+通过`Cmd+Ctrl+Alt+F`或`Fold Selection`命令来折叠任意选中的代码段
 
 
 # 分栏
 ![Panes](https://raw.githubusercontent.com/PeterHo/images/master/blog/editor/atom/atom_4/panes.png)
-你可以使用`Ctrl+K 方向键`来创建新的分栏,其中方向键的方向决定了分栏的方式,比如`Ctrl+K ↓`就会创建一个新的水平分栏
-当已经存在分栏时,通过`Ctrl+K Ctrl+方向键`来在分栏间切换光标焦点.
-如果你想关闭一个分栏,使用`Ctrl+W`
+你可以使用`Cmd+K 方向键`来创建新的分栏,其中方向键的方向决定了分栏的方式,比如`Cmd+K ↓`就会创建一个新的水平分栏
+当已经存在分栏时,通过`Cmd+K Cmd+方向键`来在分栏间切换光标焦点.
+如果你想关闭一个分栏,使用`Cmd+W`
 
 
 # 代码类型

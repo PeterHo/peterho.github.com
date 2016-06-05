@@ -4,13 +4,13 @@ title: Atom编辑器入门到精通(二) 插件的安装和管理
 date: '2016-01-21 15:26'
 ---
 
-原创时间:2016-01-21<br>更新时间:2016-01-29
+原创时间:2016-01-21<br>更新时间:2016-06-05
 
 在本节中我们会学习如果安装和使用插件
-插件是Atom中一个非常重要的组成部分,很多功能都是以插件形式存在的,比如上篇文章中提到的目录树窗口和设置窗口都是利用默认安装的插件来实现的
+插件是Atom中一个非常重要的组成部分,很多功能都是以插件形式存在的.比如上篇文章中提到的目录树和设置等窗口都是通过默认安装的插件来实现的.
 
 # 查看已安装的插件
-打开设置窗口(`Ctrl+,`),再切换到"Packages"标签页,你就可以看到已经安装了的插件的列表了
+打开设置窗口(`Cmd+,`),再切换到"Packages"标签页,就可以看到已安装的插件列表了
 我们可以发现Atom默认安装了70多个插件,Atom通过这些插件提供了各种非常有用的特性和功能
 另外在设置窗口的"Themes"标签页中也能看到所有安装过的主题(主题其实也是一种插件)
 
@@ -22,8 +22,8 @@ date: '2016-01-21 15:26'
 
 # 插件设置
 当插件安装成功以后也会在上文提到的"Packages"标签页中显示出来
-你可以在"Packages"标签页的提示有"Filter packages by name"的文本框中输入插件的名字来搜索已安装的插件
-点击插件列表中的"Settings"按钮,就会显示该插件的设置页面.你可以在这个页面中对该插件进行配置和管理
+你可以在"Packages"标签页的"Filter packages by name"文本框中输入插件的名字来搜索已安装的插件.
+如果插件支持手动设置,在它所在的列表项中就会有一个名为"Settings"的按钮.
 ![插件设置](https://raw.githubusercontent.com/PeterHo/images/master/blog/editor/atom/atom_2/package-specific-settings.png)
 
 # 主题插件
@@ -34,7 +34,7 @@ date: '2016-01-21 15:26'
 ![新主题](https://raw.githubusercontent.com/PeterHo/images/master/blog/editor/atom/atom_2/unity-theme.png)
 
 # 通过命令行来安装管理插件
-当安装好Atom以后你会获得`apm`命令,你可以很方便地在命令终端中通过这个命令来安装管理插件,而不是在界面上点啊点
+安装好Atom以后你可以通过在命令行中使用`apm`命令来安装管理插件
 具体使用方法如下:
 * 显示使用帮助
 
@@ -56,7 +56,7 @@ apm install <package_name>
 # 安装一个特定版本的插件
 apm install <package_name>@<package_version>
 
-# 比如要安装0.1.5版的Emmet插件
+# 比如要安装0.1.5版的Emmet
 apm install emmet@0.1.5
 ```
 

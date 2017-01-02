@@ -1,130 +1,143 @@
 ---
 layout: post
-title: Atom编辑器入门到精通(七) Markdown支持 (下)
+title: Atom编辑器入门到精通(八) Markdown支持 (下)
 date: '2016-12-08 20:24'
 ---
 
 原创时间:2016-12-08
-更新时间:2016-12-08
+更新时间:2016-12-10
 
-在上一章中我们了解了原生Atom对Markdown的支持, 这一讲我们一起学习如何通过更多的插件让Atom更好地支持Markdown文件.
+在上一章中我们了解了原生Atom对Markdown的支持, 这一讲我们一起学习如何使用更多的插件让Atom更好地支持Markdown文件.
 
 # Markdown-Writer
 如果你跟我一样, 使用Markdown格式来写博客, 那你一定也需要Markdown-Writer插件, 它能让更方便地管理和编辑Markdown文件.
-安装
+先来几张官方的GIF感受一下它的功能吧
+
+![newblog](https://raw.githubusercontent.com/PeterHo/images/master/blog/editor/atom/atom_8/newblog.gif)
+创建新文章
+
+![insertimg](https://raw.githubusercontent.com/PeterHo/images/master/blog/editor/atom/atom_8/insertimg.gif)
+插入图片
+
+![insertlink](https://raw.githubusercontent.com/PeterHo/images/master/blog/editor/atom/atom_8/insertlink.gif)
+插入链接
+
+![removelink](https://raw.githubusercontent.com/PeterHo/images/master/blog/editor/atom/atom_8/removelink.gif)
+移除链接
+
+## 安装
 ```
 apm install markdown-writer
 ```
 
+## 配置
+我们可以在Atom的`设置窗口`->`Packages`->`markdown-writer`->`Settings`里来设置, 或者在上篇文章中介绍的config.cson中配置.
 
-# CSON
-CSON(CoffeeScript Object Notation)是Atom配置文件的文件格式, 它使用键值对的格式来存储数据. 就像下面这个样子
-```
-key:
-    key: value
-    key: value
-    key: [value, value]
-```
-跟Python类似, CSON使用缩进来标识语句块.
+在`siteLocalDir`设置为博客根目录, 如果为空, 将会使用Atom的当前目录.
+`fileExtension`改为`.md`
+其他配置可以使用默认配置
 
-CSON的key的名字不能重复, 如果CSON中包含了多个同名的key, 那么最后的那个key的值会覆盖之前同名的key.
-因此**不能**这样配置
-```
-# 只有第二个snippet会被载入
-'.source.js':
-  'console.log':
-    'prefix': 'log'
-    'body': 'console.log(${1:"crash"});$2'
-'.source.js':
-  'console.error':
-    'prefix': 'error'
-    'body': 'console.error(${1:"crash"});$2'
+如果我们同时编辑了几个博客, 可以将上述配置写在一个名为`_mdwriter.cson`的文件里, 并置于博客的根目录下, 这样就能在博客之间使用不同的配置了. 还有一个简单的方法是在打开博客项目后`Ctrl+Shift+P`执行命令`Markdown Writer: Create Project Configs`. 注意在修改配置以后需要执行命令`Window: Reload`来重新读取配置.
 
+我的`config.cson`相关配置:
 ```
-而应该这样配置
-```
-# 两个snippets都会被载入
-'.source.js':
-  'console.log':
-    'prefix': 'log'
-    'body': 'console.log(${1:"crash"});$2'
-  'console.error':
-    'prefix': 'error'
-    'body': 'console.error(${1:"crash"});$2'
-
+"*":
+  "markdown-writer":
+    fileExtension: ".md"
+    siteLocalDir: "/home/peter/src/peterho.github.com"
 ```
 
-value可以是字符串, 数字, 对象, 布尔值, null, 或数组.
-
-# 主题微调
-有这样一个场景, 我们想对一个主题中的某个元素的style进行一点点修改, 但又不想(或是不会)创建一个完整的主题包, 这个时候我们就可以通过编辑`styles.less`文件来达到目的. 这个文件位于`~/.atom`目录下, 是一个Less语言(一个CSS的预处理程序)的源文件.
-我们可以使用Atom来打开并编辑这个文件, 也可以通过主菜单`Edit`->`Stylesheet`来更方便地打开它.
-
-举个例子, 如果我们想要改变状态栏的颜色, 可以在`styles.less`中加入
+## 快捷键
+Markdown-Writer提供了大量的快捷键和命令来增强md文件的编辑体验.
+要启用这些快捷键, 需要执行命令`Markdown Writer: Create Default Keymaps`.
+该命令会自动将Markdown-Writer的默认热键添加到`keymap.cson`中. 就像这个样子
 ```
-.status-bar {
-  color: white;
-  background-color: black;
-}
+".platform-linux atom-text-editor:not([mini])":
+  "shift-ctrl-K": "markdown-writer:insert-link"
+  "shift-ctrl-I": "markdown-writer:insert-image"
+  "ctrl-i":       "markdown-writer:toggle-italic-text"
+  "ctrl-b":       "markdown-writer:toggle-bold-text"
+  "ctrl-'":       "markdown-writer:toggle-code-text"
+  "ctrl-h":       "markdown-writer:toggle-strikethrough-text"
+  "ctrl-1":       "markdown-writer:toggle-h1"
+  "ctrl-2":       "markdown-writer:toggle-h2"
+  "ctrl-3":       "markdown-writer:toggle-h3"
+  "ctrl-4":       "markdown-writer:toggle-h4"
+  "ctrl-5":       "markdown-writer:toggle-h5"
 ```
-就这么简单.
+可以发现这些热键包括插入链接, 图片, 切换各种字体样式.
 
-但我们如何知道需要修改的对象的类名和属性名呢. 我们知道, Atom是基于Node.js和Chromium开发的, 那么我们当然也可以使用Chromium提供的开发工具来调试它. 呼出开发工具的快捷键为`Ctrl+Shift+I`.
-![devtools](https://raw.githubusercontent.com/PeterHo/images/master/blog/editor/atom/atom_7/devtools.png)
-我们可以使用开发工具来检索Atom中所有的元素. 如果需要修改某个元素的style, 在上文中提到的`styles.less`中修改其属性值即可. 如果你不会Less, 那就把它当作CSS吧.
-
-## 调整编辑区的样式
-Atom的为了将编辑区的样式与其他部分隔开, 使用了一个Shadow DOM.
-因此, 如果我们想要调整编辑区的样式, 需要用`atom-text-editor::shadow`选择器来标识它.
-举个例子, 如果你想改变光标的颜色, 只使用`.cursor`选择器是不够的, 还的在它前面加上`atom-text-editor::shadow`.
+如果你和我一样使用`vim-mode`插件, 还可以添加这些热键
 ```
-atom-text-editor::shadow .cursor {
-  border-color: pink;
-}
+"atom-text-editor.vim-mode.normal-mode":
+  "g x": "markdown-writer:open-link-in-browser"
+  "g k": "markdown-writer:jump-to-reference-definition"
+  "[ h": "markdown-writer:jump-to-previous-heading"
+  "] h": "markdown-writer:jump-to-next-heading"
+  ", o": "markdown-writer:toggle-ol"
+  ", u": "markdown-writer:toggle-ul"
+  ", t": "markdown-writer:toggle-task"
+  ", T": "markdown-writer:toggle-taskdone"
+
+"atom-text-editor.vim-mode.insert-mode":
+  "| i": "markdown-writer:insert-table"
+  "| |": "markdown-writer:jump-to-next-table-cell"
+
+"atom-text-editor.vim-mode.visual-mode":
+  "_": "markdown-writer:toggle-italic-text"
+  "8": "markdown-writer:toggle-bold-text"
+  "`": "markdown-writer:toggle-code-text"
 ```
 
-# 配置热键
-在Atom中热键的配置方式与主题类似, 举个例子:
-```00000000000000000000000000000.......................00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
-'atom-text-editor':
-  'enter': 'editor:newline'
-
-'atom-text-editor[mini] input':
-  'enter': 'core:confirm'
+下面列出上文还没有提到的功能列表, 请各位同学自行选择需要的功能并设为热键吧
 ```
-上面的代码定义了`Enter`键在不同环境中的不同表现. 在正常的编辑窗口中按`enter`键触发`editor:newline`命令, 也即是普通的回车. 而当在一个编辑框中键入`enter`时, 则会触发`core:confirm`命令.
+# 工作区
+"markdown-writer:new-post",
+"markdown-writer:new-draft",
+"markdown-writer:open-cheat-sheet",
+"markdown-writer:create-default-keymaps",
+"markdown-writer:create-project-configs"
+# 编辑区
+"markdown-writer:manage-post-tags",
+"markdown-writer:manage-post-categories",
+"markdown-writer:insert-footnote",
+"markdown-writer:toggle-codeblock-text",
+"markdown-writer:toggle-keystroke-text",
+"markdown-writer:toggle-blockquote",
+"markdown-writer:publish-draft",
+"markdown-writer:format-table",
+"markdown-writer:correct-order-list-numbers",
+"markdown-writer:insert-new-line",
+"markdown-writer:indent-list-line"
+```
+这些命令的名字都很直白, 就不一一解释了.
 
-在默认情况下, 当Atom启动时会加载`keymap.cson`文件来获取自定义热键, 并且`keymap.cson`是最后被加载的配置文件, 这样可以保证我们配置的热键可以覆盖Atom自身或其插件定义的热键. 这个文件同样位于`~/.atom`目录下, 当然也可以通过主菜单`Edit`->`Keymap...`来直接编辑这个文件.
+# Markdown Preview Enhanced
+该插件是Markdown Preview的增强版, 在原生插件的基础上增加了很多实用的功能
+## 安装
+```
+apm install markdown-preview-enhanced
+```
+在插件页面禁用内置的Markdown Preview插件
 
+## 使用
+该插件的功能很多, 这里只列出一些最常用的功能, 更多功能请参考[中文官方文档](https://github.com/shd101wyy/markdown-preview-enhanced/blob/master/docs/README_CN.md)
+1. 预览md的快捷键任然为`Ctrl+Shift+M`
+2. 编辑预览同步滚动
+3. 命令`Create Toc`可以在当前位置生成md文件的toc
+4. md文件导出为PDF, PNG, JPEG等文件
+5. 命令`Insert Table`用于插入表格
+6. 在预览窗口右键可以选择在浏览器中打开预览
+7. 支持GitHub Flavored Markdown样式的TODO List
 
+## 配置
+下面是我的配置
+```
+"*":
+  "markdown-preview-enhanced":
+    breakOnSingleNewline: true
+    useGitHubStyle: false
+    useGitHubSyntaxTheme: false
+```
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-a
+有了以上两个插件, Atom已经可以被称作最好的MD编辑器了.
